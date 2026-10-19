@@ -1,0 +1,6 @@
+node_modules/
+data/
+docs/screenshots/*.tmp
+_*.log
+*.log
+.DS_Store

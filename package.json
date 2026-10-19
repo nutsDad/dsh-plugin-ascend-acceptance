@@ -1,0 +1,48 @@
+{
+  "name": "dsh-plugin-ascend-acceptance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "昇腾运行环境与机房交付标准结构化解析、验收交付件逐项核验与报告生成（DSH 插件）",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "ascend",
+    "npu",
+    "data-center",
+    "acceptance",
+    "delivery"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "web",
+    "samples",
+    "tools",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "selftest": "node tools/selftest.mjs",
+    "serve": "node tools/dev-server.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "external": []
+    }
+  }
+}

@@ -1,0 +1,24 @@
+# 昇腾交付核验（ascend-acceptance）bundle patch。
+#
+# 一行双端插件：
+#   host 端    lib/index.js  —— 解析上传的标准/交付件，执行逐项比对，提供页面与 API
+#   client 端  lib/client.js —— 在会话侧边栏注册「交付核验」入口，打开独立核验页面
+#
+# 配置项都写在下面；用户也可以在自己的 profile cordis.patch.yml 里覆盖。
+
+- insert:
+    - id: ascend-acceptance
+      name: dsh-plugin-ascend-acceptance
+      config:
+        # 核验页面 URL 前缀。
+        routePrefix: /ascend-acceptance
+        # 单个文件上限（字节）。默认 50 MiB。
+        maxUploadBytes: 52428800
+        # 一个核验任务中每类文件的数量上限。
+        maxFilesPerRole: 30
+        # 标准要求 / 交付证据的解析上限，防止异常长文档拖垮页面。
+        maxRequirements: 800
+        maxFacts: 2400
+        # 会话在内存中的空闲有效期与并发会话数。
+        sessionTtlMs: 7200000
+        maxSessions: 12
