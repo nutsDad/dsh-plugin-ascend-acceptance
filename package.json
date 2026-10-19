@@ -14,6 +14,15 @@
     "delivery"
   ],
   "license": "MIT",
+  "author": "nutsDad",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nutsDad/dsh-plugin-ascend-acceptance.git"
+  },
+  "homepage": "https://github.com/nutsDad/dsh-plugin-ascend-acceptance#readme",
+  "bugs": {
+    "url": "https://github.com/nutsDad/dsh-plugin-ascend-acceptance/issues"
+  },
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
