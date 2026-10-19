@@ -2,6 +2,8 @@
 
 > DeepSeek Harness（DSH）插件：上传**昇腾运行环境与机房交付标准**与**验收交付件**，自动解析结构化条款与证据、逐项比对，输出包含“通过/不通过/待确认”、标准依据、交付依据和整改建议的核验报告。
 
+GitHub：<https://github.com/nutsDad/dsh-plugin-ascend-acceptance> · Release：`v1.0.0`
+
 ![核验报告](docs/screenshots/report-top.png)
 
 ---
@@ -105,7 +107,15 @@ Markdown 报告适合直接贴进验收纪要；CSV 适合二次统计；HTML �
 
 ## 3. 安装
 
-### 方式 A：从本地目录安装（开发/内网）
+### 方式 A：从 GitHub 安装
+
+```powershell
+dsh plugin --profile web add github:nutsDad/dsh-plugin-ascend-acceptance
+```
+
+`dsh plugin` 会在 profile 目录执行 pnpm 安装；本包声明了 `dsh.bundle.patch` 与 `dsh.client`，安装后重启对应 profile 即可。
+
+### 方式 B：从本地目录安装（开发/内网）
 
 ```powershell
 $profile = "$env:DSH_HOME\profiles\desktop"
@@ -137,7 +147,7 @@ pnpm --dir $profile add file:D:\00_gongkanAgent
 ascend-acceptance: 交付核验页面位于 /ascend-acceptance/
 ```
 
-### 方式 B：手工安装，不经过 pnpm
+### 方式 C：手工安装，不经过 pnpm
 
 1. 在 profile 的 `node_modules` 下建立 junction：
 
